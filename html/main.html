@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <!-- load stylesheets: Bootstrap v2.3.0 - http://twitter.github.com/bootstrap/index.html -->
@@ -16,25 +17,32 @@
     <body>
         <div id="main-outer">
             <div id="main-inner">
-                <div id="main-title">CSS Selector</div>
+                <div id="main-title">Selector</div>
                 <div>
-                <button>Select</button>
+                <button id="btnClear">Clear Saved Data</button>
                 </div>
                 <div>
-                <button>Accept Selection</button>
+                <button id="btnSelect">Select</button>
+                <input id="tagName" type="text" name="tagName" value="tag1"/> 
                 </div>
                 <div>
-                <button>Cancel</button>
+                <button id="btnAccept">Accept Selection</button>
                 </div>
                 <div>
-                <button>Result</button>
+                <button id="btnCancel">Cancel</button>
                 </div>
+                <div>
+                <button id="btnResult">Result</button>
+                </div>
+
                 <!-- <img id="main-image" src="../images/tsheets_logo.png" /> -->
                 <!-- <div id="main-about-text">A sample project for kickstarting your next Chrome browser extension.</div> -->
             </div>
         </div>
 
         <!-- load javascript: unique html page javascript file -->
+        <script type="text/javascript" src="../js/PageTaggerLib/PageTagger.js"></script>
         <script type="text/javascript" src="../js/main.js"></script>
+        
     </body>
 </html>

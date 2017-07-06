@@ -25,5 +25,36 @@
 
     //additional
     "options_page": "html/options.html",
-    "homepage_url": "http://yourdomainhere.com/"
+    "homepage_url": "http://yourdomainhere.com/",
+
+    //permission
+    "permissions": [
+        "activeTab",
+        "storage",
+        "<all_urls>"
+    ],
+
+    "background":{
+        "scripts":["js/background.js"]
+    },
+
+
+    "web_accessible_resources": [
+        "js/PageTaggerLib/SelectorGadget/SelectorGadget.js",
+        "js/PageTaggerLib/SelectorGadget/SelectorGadget.css",
+        "js/jquery-1.9.1.min.js",
+        "js/PageTaggerLib/SelectorGadget/diff_match_patch.js",
+        "js/PageTaggerLib/SelectorGadget/dom.js",
+        "js/PageTaggerLib/SelectorGadget/interface.js"
+    ]
+    // , 
+    // "content_scripts":[
+    //     {
+    //     "matches" : ["http://*/*",
+    //     "https://*/*"],
+    //     "css":["js/PageTaggerLib/SelectorGadget/SelectorGadget.css"],
+    //     "js":["js/PageTaggerLib/SelectorGadget/SelectorGadget.js"],
+    //     "run_at":"document_end"
+    // }
+    // ]
 }
