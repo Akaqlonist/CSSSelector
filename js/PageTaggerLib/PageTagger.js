@@ -69,32 +69,30 @@ PageTagger.prototype.acceptSelection = function()
 	function modifyDOM() {
         //You can play with your DOM here or check URL against your regex
   		s=document.createElement('script');
-		s.setAttribute('type','text/javascript');
+		  s.setAttribute('type','text/javascript');
 
 
-		s.innerHTML = "console.log(selector_gadget.selected[0].className); var classNames=selector_gadget.selected[0].className.split(' '); var selectedClassName = ''; var i; for(i = 0; i < classNames.length; i++){if(classNames[i].includes('sg_') == false){selectedClassName = selectedClassName + classNames[i] + ' ';}} selectedClassName = selectedClassName.replace(/\s+$/, ''); localStorage.setItem('selectedClass', selectedClassName); console.log(localStorage.getItem('selectedClass'));";
-		document.body.appendChild(s);
+		  s.innerHTML = "console.log(selector_gadget.path_output_field.value); var selector=selector_gadget.path_output_field.value;  localStorage.setItem('selector', selector);";
+		  document.body.appendChild(s);
 
-		var selectedClass = localStorage.getItem('selectedClass');
+		  var selector = localStorage.getItem('selector');
+      var selectedContents = [selector];
 
+		  var selectedElements = document.querySelectorAll(selector);
+      for (var i = 0 ; i < selectedElements.length; i++)
+      {
+        var element = selectedElements[i];
+        if (element.tagName.toLowerCase() == "img")
+        {
+          selectedContents.push(element.src);
+        }
+       else
+        {
+          selectedContents.push(element.textContent);
+        }
+      }
 
-		var selectedElements = document.getElementsByClassName(selectedClass);
-		var i;
-		var selectedContents = [selectedClass];
-		for (i=0; i < selectedElements.length; i++)
-		{
-			if (selectedElements[i].tagName.toLowerCase() == "img")
-			{
-				selectedContents.push(selectedElements[i].src);
-			}
-			else
-			{
-				selectedContents.push(selectedElements[i].textContent);
-			}
-			
-		}
-
-        return selectedContents;
+      return selectedContents;
     }
 
     //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
@@ -102,15 +100,15 @@ PageTagger.prototype.acceptSelection = function()
         code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
     }, (results) => {
   
-  		//console.log(results);
+  		//console.log(results[0]);
 
-  		var selectedClasses = JSON.parse(localStorage.getItem("selectedClasses"));
-  		if (selectedClasses == null)
+  		var selectedSelectors = JSON.parse(localStorage.getItem("selectedSelectors"));
+  		if (selectedSelectors == null)
   		{
-  			selectedClasses = [];
+  			selectedSelectors = [];
   		}
-  		selectedClasses.push(results[0][0]);
-  		localStorage.setItem("selectedClasses", JSON.stringify(selectedClasses));
+  		selectedSelectors.push(results[0][0]);
+  		localStorage.setItem("selectedSelectors", JSON.stringify(selectedSelectors));
 
   		var selectedContents = JSON.parse(localStorage.getItem("selectedContents"));
   		if (selectedContents == null)
@@ -166,7 +164,7 @@ PageTagger.prototype.cancel = function()
 PageTagger.prototype.result = function()
 {
 	var tagList = JSON.parse(localStorage.getItem("tagList"));
-	var selectedClasses = JSON.parse(localStorage.getItem("selectedClasses"));
+	var selectedSelectors = JSON.parse(localStorage.getItem("selectedSelectors"));
 	var selectedContents = JSON.parse(localStorage.getItem("selectedContents"));
 
 	var resultObject = new Object();
@@ -175,10 +173,10 @@ PageTagger.prototype.result = function()
 
 	var i;
 
-	for (i = 0 ; i < selectedClasses.length; i++)
+	for (i = 0 ; i < selectedSelectors.length; i++)
 	{
-		var className = selectedClasses[i];
-		selectorsObject[tagList[i]] = className;
+		var selector = selectedSelectors[i];
+		selectorsObject[tagList[i]] = selector;
 	}
 
 
@@ -217,12 +215,12 @@ PageTagger.prototype.result = function()
         	return color;
         }
 
-  		console.log(selectedClasses);
+  		console.log(selectedSelectors);
   		var i;
-  		for (i = 0 ; i < selectedClasses.length; i++)
+  		for (i = 0 ; i < selectedSelectors.length; i++)
   		{
   			var randomColor = getRandomColor();
-  			var elements = document.getElementsByClassName(selectedClasses[i]);
+  			var elements = document.querySelectorAll(selectedSelectors[i]);
   			console.log(elements.length);
   			for(var j = 0; j < elements.length; j++)
   			{
@@ -249,7 +247,7 @@ PageTagger.prototype.result = function()
 
     //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
     chrome.tabs.executeScript({
-        code: 'var selectedClasses=' + JSON.stringify(selectedClasses) + ';' + '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
+        code: 'var selectedSelectors=' + JSON.stringify(selectedSelectors) + ';' + '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
     }, (results) => {
         
 	});
