@@ -66,7 +66,10 @@ function onCancelSelection()
 
 function onResult()
 {
-	pageTagger.result();
+	var shouldHighlight = document.getElementById('shouldHighlight').checked;
+	pageTagger.shouldHighlightResult = shouldHighlight;
+	
+	var result = pageTagger.result();
 }
 
 function onClear()

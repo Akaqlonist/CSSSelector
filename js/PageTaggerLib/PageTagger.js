@@ -3,6 +3,7 @@ var selectedClasses = [];
 function PageTagger() {
 
 	this.showSelection = true;
+  this.shouldHighlightResult = true;
 }
 
 PageTagger.prototype.init = function(options = true)
@@ -202,6 +203,12 @@ PageTagger.prototype.result = function()
 	console.log(JSON.stringify(resultObject));
 
 	//hightlight whole selection
+  
+
+  if (!this.shouldHighlightResult)
+  {
+    return resultObject;
+  }
 
 	function modifyDOM() {
         //You can play with your DOM here or check URL against your regex
