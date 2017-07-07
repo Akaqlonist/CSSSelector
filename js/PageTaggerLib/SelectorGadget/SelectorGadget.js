@@ -38,6 +38,7 @@ function wait_for_script_load(look_for, callback) {
 (function(){
 
   importCSS(cssUrl);
+  importCSS(customcssUrl);
   importJS(jqueryUrl, 'jQuery', function() { // Load everything else when it is done.
     jQuery.noConflict();
     importJS(diffUrl, 'diff_match_patch', function() {

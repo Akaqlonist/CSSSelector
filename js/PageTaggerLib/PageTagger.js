@@ -31,6 +31,7 @@ PageTagger.prototype.select = function(tagName)
 
 		var selectorGadgetUrl = chrome.extension.getURL('../js/PageTaggerLib/SelectorGadget/SelectorGadget.js');
 		var cssUrl = chrome.extension.getURL('../js/PageTaggerLib/SelectorGadget/SelectorGadget.css');
+    var customcssUrl = chrome.extension.getURL('../js/PageTaggerLib/CustomSelectionStyle.css');
 		var jqueryUrl = chrome.extension.getURL('../js/jquery-1.9.1.min.js');
 		var diffUrl = chrome.extension.getURL('../js/PageTaggerLib/SelectorGadget/diff_match_patch.js');
 		var domUrl = chrome.extension.getURL('../js/PageTaggerLib/SelectorGadget/dom.js');
@@ -39,7 +40,7 @@ PageTagger.prototype.select = function(tagName)
 
 		s=document.createElement('script');
 		s.setAttribute('type','text/javascript');
-		s.innerHTML = "var cssUrl='" + cssUrl + "'; var jqueryUrl='" + jqueryUrl + "'; var diffUrl='" + diffUrl + "'; var domUrl='" + domUrl + "'; var interfaceUrl='" + interfaceUrl + "';"
+		s.innerHTML = "var cssUrl='" + cssUrl + "'; var customcssUrl='" + customcssUrl + "'; var jqueryUrl='" + jqueryUrl + "'; var diffUrl='" + diffUrl + "'; var domUrl='" + domUrl + "'; var interfaceUrl='" + interfaceUrl + "';"
 		document.body.appendChild(s);
 
 		s=document.createElement('script');

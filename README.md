@@ -25,6 +25,9 @@
         <div>7. Repeat 4 - 6 for multi - selection</div>
         <div>8. Press "result" button , you will see selected elements highlighted (different color for each tag).  Go to console and check result object. </div>
         <br/>
+        <div>Customization</div>
+        <div>Go to js/PageTaggerLib/CustomSelectionStyle.css file and do customization work.</div>
+        <br/>
         <div>If you find this template helpful and can think of a way to improve it, please do so!</div>
     </body>
 </html>

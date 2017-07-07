@@ -42,6 +42,7 @@
     "web_accessible_resources": [
         "js/PageTaggerLib/SelectorGadget/SelectorGadget.js",
         "js/PageTaggerLib/SelectorGadget/SelectorGadget.css",
+        "js/PageTaggerLib/CustomSelectionStyle.css",
         "js/jquery-1.9.1.min.js",
         "js/PageTaggerLib/SelectorGadget/diff_match_patch.js",
         "js/PageTaggerLib/SelectorGadget/dom.js",

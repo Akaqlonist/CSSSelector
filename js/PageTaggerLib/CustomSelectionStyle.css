@@ -1,0 +1,39 @@
+/* Overwrite this color (#0F0 - green by default) to change selected element's background color */
+.sg_selected{
+  background-color:#0F0 !important;
+}
+
+/* Overwrite this color (#FF5 - yellow by default) to change background color of elements that have same css as the selection */
+.sg_suggested{
+  background-color:#FF5 !important;
+}
+
+/* Overwrite this color (orange by default) to change color of borders appearing when you move your mouse over elements */
+.sg_border{
+  background-color:orange !important;
+}
+
+/* Overwrite this color (#F00 - red by default) to change color of borders appearing when you move your mouse over selected element */
+.sg_border_red{
+  background-color:#F00 !important;
+}
+
+/* Overwrite this color (#F00 - red by default) to change background of rejected element */
+.sg_rejected{
+  background-color:#F00 !important;
+}
+
+/* Overwrite this color (#F00 - red by default) to change border color or rejected img element */
+img.sg_rejected{
+  border:5px solid #F00 !important;
+}
+
+/* Overwrite this color (#FF5 - yellow by default) to change border color of img elements that have same css as the selection */
+img.sg_suggested{
+  border:5px solid #FF5 !important;
+}
+
+/* Overwrite this color (#0F0 - green by default) to change border color of currently selected img element */
+img.sg_selected{
+  border:5px solid #0F0 !important;
+}
