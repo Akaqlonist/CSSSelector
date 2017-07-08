@@ -8,14 +8,16 @@
   background-color:#FF5 !important;
 }
 
-/* Overwrite this color (orange by default) to change color of borders appearing when you move your mouse over elements */
-.sg_border{
-  background-color:orange !important;
+/* Overwrite this color (#AAA - gray by default) to change background color  when you move your mouse over elements */
+.sg_hover{
+	background-color:#AAA !important;
 }
 
-/* Overwrite this color (#F00 - red by default) to change color of borders appearing when you move your mouse over selected element */
-.sg_border_red{
-  background-color:#F00 !important;
+img.sg_hover{
+	border-color:#AAA;
+	background-image:none;
+	border-width:thick;
+	border-style:solid;
 }
 
 /* Overwrite this color (#F00 - red by default) to change background of rejected element */
@@ -37,3 +39,4 @@ img.sg_suggested{
 img.sg_selected{
   border:5px solid #0F0 !important;
 }
+

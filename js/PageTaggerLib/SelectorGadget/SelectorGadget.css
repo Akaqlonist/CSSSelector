@@ -155,28 +155,12 @@ div#_sg_div input{
   background-color:#FF5 !important;
   background-image:none !important;
 }
-.sg_border{
-  position:absolute !important;
-  z-index:999999 !important;
-  background:white !important;
-  background-color:orange !important;
-  margin:0px !important;
-  padding:0px !important;
-  display:block !important;
-  float:none !important;
-  border:0 !important;
-  font-style:none !important;
-  outline:0 !important;
-  vertical-align:baseline !important;
-  text-align:left !important;
-}
+
 .sg_bottom_border{
   font-size:10px !important;
   padding:2px 0px 2px 5px !important;
 }
-.sg_border_red{
-  background-color:#F00 !important;
-}
+
 .sg_highlighted{
 }
 .sg_rejected{
